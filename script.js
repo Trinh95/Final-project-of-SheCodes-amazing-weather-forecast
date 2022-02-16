@@ -41,7 +41,6 @@ function editday(timestamp) {
 
 function showForecast(answer) {
   let days = answer.data.daily;
-  console.log(days);
   let eachDayElement = document.querySelector("#forecast");
   let eachDayHTML = `<div class="row">`;
   days.forEach(function (day, index) {
@@ -70,12 +69,10 @@ function showForecast(answer) {
 
 function gotoForecast(result) {
   let forecastLink = `https://api.openweathermap.org/data/2.5/onecall?lat=${result.lat}&lon=${result.lon}&units=metric&&appid=${apiKey}`;
-  console.log(forecastLink);
   axios.get(forecastLink).then(showForecast);
 }
 
 function showweather(response) {
-  console.log(response);
   let feelslike = document.querySelector("#feelslike");
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
@@ -103,7 +100,19 @@ function showweather(response) {
 
 function queryLink(cityInput) {
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}`;
-  axios.get(weatherUrl).then(showweather);
+  axios
+    .get(weatherUrl)
+    .then(showweather)
+    .catch((error) => {
+      if (error.response) {
+        let cityInput = prompt(
+          "The name is invalid. Please enter a different city name!"
+        );
+        queryLink(cityInput);
+        let cityName = document.querySelector("#cityInput");
+        cityName.setAttribute("value", `${cityInput}`);
+      }
+    });
 }
 
 function handleSubmit(event) {
@@ -132,8 +141,8 @@ function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "c3b8d523aae85de22d68b39520fd6094";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(showweather);
+  let apiUrlPosition = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrlPosition).then(showweather);
 }
 
 function searchCity() {
