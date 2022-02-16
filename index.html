@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapping">
+        <form id="searchBox">
+          <div class="row">
+            <input
+              type="text"
+              autocomplete="off"
+              placeholder="Enter a city"
+              class="form-control"
+              id="cityInput"
+            />
+            <button class="btn btn-primary" id="search">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-search"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-success"
+              id="locationButton"
+            >
+              📍
+            </button>
+          </div>
+        </form>
+
+        <h1 id="cityName">KRAKOW</h1>
+        <h5>Tuesday, 16:54</h5>
+
+        <div class="row">
+          <ul class="col-4">
+            <li>
+              <strong>Feels like: </strong>
+              <span id="feelslike">6</span>°C
+            </li>
+            <li>
+              <strong>Humidity: </strong>
+              <span id="humidity">57</span>%
+            </li>
+            <li><strong>Wind:</strong> <span id="wind">3</span>km/h</li>
+          </ul>
+          <ul class="col-4">
+            <li>
+              <img id="mainIcon" scr="#" alt="cloudy" />
+            </li>
+          </ul>
+          <ul class="col-4 column-2">
+            <li>
+              <strong id="description">Clear sky</strong>
+            </li>
+            <li>
+              <span class="temperature" id="temperature">8</span>
+              <span class="unit">
+                <a href="#" id="Ctemp" class="inactive">°C</a>|
+                <a href="#" id="Ftemp">°F</a></span
+              >
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <div class="ending">
+          <span>
+            <a
+              href="https://github.com/Trinh95/Final-project-of-Shecodes-Pro"
+              target="_blank"
+              >Open-source code</a
+            >
+          </span>
+          by Trinh Le 👩🏻‍💻
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
