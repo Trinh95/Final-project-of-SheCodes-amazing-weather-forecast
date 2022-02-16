@@ -110,7 +110,7 @@ function queryLink(cityInput) {
         );
         queryLink(cityInput);
         let cityName = document.querySelector("#cityInput");
-        cityName.setAttribute("value", `${cityInput}`);
+        cityName.value = cityInput;
       }
     });
 }
