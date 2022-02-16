@@ -149,7 +149,7 @@ function searchCity() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-let apiKey = "c3b8d523aae85de22d68b39520fd6094";
+let apiKey = "5d3b346f3e3af0daf6465f0d5ed890f4";
 
 let Ctemperature = null;
 
