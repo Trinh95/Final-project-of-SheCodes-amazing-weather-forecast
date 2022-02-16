@@ -4,6 +4,14 @@ function showTime(time) {
   if (minute < 10) {
     minute = `0${minute}`;
   }
+
+  if (hour > 6 && hour < 12) {
+    document.body.style.backgroundImage = "url('img/morning.jpg')";
+  }
+  if (hour > 18) {
+    document.body.style.backgroundImage = "url('img/night.jpg')";
+  }
+
   if (hour < 10) {
     hour = `0${hour}`;
   }
@@ -18,7 +26,7 @@ function showTime(time) {
   ];
   let day = days[time.getDay()];
   let h5 = document.querySelector("h5");
-  h5.innerHTML = `${day}, ${hour}:${minute}`;
+  h5.innerHTL = `${day}, ${hour}:${minute}`;
 }
 function upperFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
