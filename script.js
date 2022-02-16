@@ -24,6 +24,48 @@ function upperFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function editday(timestamp) {
+  let date = new Date(timestamp);
+  let days = [`Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`];
+  day = days[date.getDay()];
+  return day;
+}
+
+function showForecast(answer) {
+  let days = answer.data.daily;
+  console.log(days);
+  let eachDayElement = document.querySelector("#forecast");
+  let eachDayHTML = `<div class="row">`;
+  days.forEach(function (day, index) {
+    if (index < 6) {
+      eachDayHTML =
+        eachDayHTML +
+        `<div class="col-sm">
+              <div><strong>${editday(day.dt * 1000)}</strong></div>
+              <img
+                class="icon-weather"
+                src="https://openweathermap.org/img/wn/${
+                  day.weather[0].icon
+                }@2x.png"/>
+              <br />
+              <span class="max-temperature">${Math.round(
+                day.temp.max
+              )}°</span> / 
+              <span class="min-temperature">${Math.round(day.temp.min)}°</span>
+            </div>
+            `;
+    }
+  });
+  eachDayHTML = eachDayHTML + `</div>`;
+  eachDayElement.innerHTML = eachDayHTML;
+}
+
+function gotoForecast(result) {
+  let forecastLink = `https://api.openweathermap.org/data/2.5/onecall?lat=${result.lat}&lon=${result.lon}&units=metric&&appid=${apiKey}`;
+  console.log(forecastLink);
+  axios.get(forecastLink).then(showForecast);
+}
+
 function showweather(response) {
   console.log(response);
   let feelslike = document.querySelector("#feelslike");
@@ -48,10 +90,10 @@ function showweather(response) {
   mainIcon.setAttribute("alt", response.data.weather[0].description);
   mainIcon.setAttribute("src", linkIcon);
   showTime(new Date(response.data.dt * 1000));
+  gotoForecast(response.data.coord);
 }
 
 function queryLink(cityInput) {
-  let apiKey = "c3b8d523aae85de22d68b39520fd6094";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}`;
   axios.get(weatherUrl).then(showweather);
 }
@@ -89,6 +131,8 @@ function showPosition(position) {
 function searchCity() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
+let apiKey = "c3b8d523aae85de22d68b39520fd6094";
 
 let Ctemperature = null;
 
