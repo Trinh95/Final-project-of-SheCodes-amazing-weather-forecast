@@ -1,5 +1,6 @@
 body {
   background-image: url(img/afternoon.jpg);
+  height: max-content;
 }
 
 h1 {
@@ -26,7 +27,6 @@ h1 {
   box-shadow: 5px 5px 15px #d9edfd;
   max-width: 700px;
   margin: 40px auto;
-  margin-bottom: 10px;
   padding: 40px 40px 20px 40px;
 }
 
