@@ -1,5 +1,5 @@
-function showTime(date) {
-  let time = new Date(date);
+function showTime() {
+  let time = new Date();
   let hour = time.getHours();
   let minute = time.getMinutes();
   if (minute < 10) {
@@ -96,8 +96,9 @@ function showweather(response) {
   );
   mainIcon.setAttribute("alt", response.data.weather[0].description);
   mainIcon.setAttribute("src", linkIcon);
-  showTime(response.data.dt * 1000);
-  gotoForecast(response.data.coord);
+  let forecastUnit = response.data.coord;
+  showTime();
+  gotoForecast(forecastUnit);
 }
 
 function queryLink(cityInput) {
