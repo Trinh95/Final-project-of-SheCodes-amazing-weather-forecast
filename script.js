@@ -1,4 +1,5 @@
-function showTime(time) {
+function showTime(date) {
+  let time = new Date(date);
   let hour = time.getHours();
   let minute = time.getMinutes();
   if (minute < 10) {
@@ -26,7 +27,7 @@ function showTime(time) {
   ];
   let day = days[time.getDay()];
   let h5 = document.querySelector("h5");
-
+  console.log(minute);
   h5.innerHTML = `${day}, ${hour}:${minute}`;
 }
 function upperFirstLetter(string) {
@@ -95,7 +96,7 @@ function showweather(response) {
   );
   mainIcon.setAttribute("alt", response.data.weather[0].description);
   mainIcon.setAttribute("src", linkIcon);
-  showTime(new Date(response.data.dt * 1000));
+  showTime(response.data.dt * 1000);
   gotoForecast(response.data.coord);
 }
 
@@ -165,4 +166,4 @@ Ctemplink.addEventListener("click", showCtemperature);
 let positionButton = document.querySelector("#locationButton");
 positionButton.addEventListener("click", searchCity);
 
-queryLink("Krakow");
+queryLink("Cam Ranh");
