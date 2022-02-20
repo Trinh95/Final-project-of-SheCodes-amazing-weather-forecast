@@ -26,7 +26,8 @@ function showTime(time) {
   ];
   let day = days[time.getDay()];
   let h5 = document.querySelector("h5");
-  h5.innerHTL = `${day}, ${hour}:${minute}`;
+
+  h5.innerHTML = `${day}, ${hour}:${minute}`;
 }
 function upperFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -140,7 +141,6 @@ function showCtemperature(event) {
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "c3b8d523aae85de22d68b39520fd6094";
   let apiUrlPosition = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrlPosition).then(showweather);
 }
