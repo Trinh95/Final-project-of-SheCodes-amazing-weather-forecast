@@ -167,4 +167,4 @@ Ctemplink.addEventListener("click", showCtemperature);
 let positionButton = document.querySelector("#locationButton");
 positionButton.addEventListener("click", searchCity);
 
-queryLink("Cam Ranh");
+queryLink("Milan");
