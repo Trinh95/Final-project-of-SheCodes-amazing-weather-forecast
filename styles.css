@@ -54,8 +54,6 @@ form {
 }
 
 .column-3 {
-  position: relative;
-  left: 5%;
   line-height: 40px;
 }
 .temperature {
@@ -116,7 +114,7 @@ form {
 @media (max-width: 750px) {
   .column-1 li {
     display: inline;
-    margin-right: 2%;
+    margin-right: 5%;
   }
   .column-2 img {
     width: 200%;
