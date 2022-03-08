@@ -46,10 +46,10 @@ function showForecast(answer) {
   let eachDayElement = document.querySelector("#forecast");
   let eachDayHTML = `<div class="row">`;
   days.forEach(function (day, index) {
-    if (index < 6) {
+    if (index < 5) {
       eachDayHTML =
         eachDayHTML +
-        `<div class="col-sm">
+        `<div class="col">
               <div><strong>${editday(day.dt * 1000)}</strong></div>
               <img
                 class="icon-weather"

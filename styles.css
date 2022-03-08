@@ -113,7 +113,7 @@ form {
 
 @media (max-width: 750px) {
   .column-1 li {
-    display: inline;
+    display: inline-block;
     margin-right: 5%;
   }
   .column-2 img {
